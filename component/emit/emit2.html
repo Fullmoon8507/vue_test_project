@@ -7,14 +7,18 @@
 
 <body>
     <div id="app">
-        <comp-tag v-bind:msg="mainMessage"></comp-tag>
+        <comp-tag v-on:child-click="parentClick"></comp-tag>
+        <div>
+            <h2>Main</h2>
+            <p>{{ msg }}</p>
+        </div>
     </div>
 
     <script src="../../common/js/vue_global.js"></script>
     <script type="module">
-        // Componentに値を渡す（上位→下位）
+        // Componentからイベント・値を受け取る（下位→上位）
 		const { createApp } = Vue
-        import CompTag from './component3.js'
+        import CompTag from './emit2.js'
 
         createApp({
             components: {
@@ -22,7 +26,12 @@
             },
             data(){
                 return{
-                    mainMessage: 'Component Area From Main Via Props'
+                    msg: ''
+                }
+            },
+            methods:{
+                parentClick(value){
+                    this.msg = value
                 }
             }
         })
