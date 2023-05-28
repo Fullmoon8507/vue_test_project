@@ -10,7 +10,8 @@
 
 <body>
     <div id="app">
-        <p v-bind:class="message_font">{{ message }}</p>
+        <p v-bind:class="message_font">{{ message1 }}</p>
+        <p :class="message_font">{{ message2 }}</p>
     </div>
 
     <script src="../../common/js/vue_global.js"></script>
@@ -20,7 +21,8 @@
         createApp({
             data(){
                 return{
-                    message: 'v-bindサンプル',
+                    message1: 'v-bindサンプル',
+                    message2: 'v-bindサンプル（省略形）',
                     message_font: 'font_red'
                 }
             }
