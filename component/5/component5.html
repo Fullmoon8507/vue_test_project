@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+    <div id="app">
+        <comp-tag v-on:child-click="parentClick"></comp-tag>
+        <div>
+            <h2>Main</h2>
+            <p>{{ msg }}</p>
+        </div>
+    </div>
+
+    <script src="../../common/js/vue_global.js"></script>
+    <script type="module">
+        // Componentからイベント・値を受け取る（下位→上位）
+		const { createApp } = Vue
+        import CompTag from './component5.js'
+
+        createApp({
+            components: {
+                CompTag
+            },
+            data(){
+                return{
+                    msg: ''
+                }
+            },
+            methods:{
+                parentClick(value){
+                    this.msg = value
+                }
+            }
+        })
+        .mount('#app')
+    </script>
+</body>
+
+</html>

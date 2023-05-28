@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+    <div id="app">
+        <comp></comp>
+    </div>
+
+    <script src="../../common/js/vue_global.js"></script>
+    <script>
+        // Componentの基本パターン（１ファイル内に全て記載）
+		const { createApp } = Vue
+
+        createApp({
+            data(){
+                return{
+                }
+            }
+        })
+        .component('comp', {
+            template: `
+                <h2>Component Area</h2>
+            `
+        })
+        .mount('#app')
+    </script>
+</body>
+
+</html>

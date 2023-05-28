@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+    <div id="app">
+        <comp-tag v-bind:msg="mainMessage"></comp-tag>
+    </div>
+
+    <script src="../../common/js/vue_global.js"></script>
+    <script type="module">
+        // Componentに値を渡す（上位→下位）
+		const { createApp } = Vue
+        import CompTag from './component3.js'
+
+        createApp({
+            components: {
+                CompTag
+            },
+            data(){
+                return{
+                    mainMessage: 'Component Area From Main Via Props'
+                }
+            }
+        })
+        .mount('#app')
+    </script>
+</body>
+
+</html>

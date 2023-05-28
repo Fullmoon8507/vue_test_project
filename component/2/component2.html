@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+    <div id="app">
+        <comp-tag></comp-tag>
+    </div>
+
+    <script src="../../common/js/vue_global.js"></script>
+    <script type="module">
+        // Componentの基本パターン（ファイル分割）
+		const { createApp } = Vue
+        import CompTag from './component2.js'
+
+        createApp({
+            components: {
+                CompTag
+            },
+            data(){
+                return{
+                }
+            }
+        })
+        .mount('#app')
+    </script>
+</body>
+
+</html>
