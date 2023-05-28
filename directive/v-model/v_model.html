@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <h2>v-modelサンプル</h2>
+            <div>
+                <input type="text" v-model="inputText1">
+            </div>
+            <div>
+                <p>入力内容：{{ inputText1 }}</p>
+            </div>
+        </div>
+        <div>
+            <h2>※以下、v-modelを使用せずに同じことを実施</h2>
+            <div>
+                <input type="text" v-bind:value="inputText2" v-on:input="inputText2=$event.target.value">
+            </div>
+            <div>
+                <p>入力内容：{{ inputText2 }}</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../common/js/vue_global.js"></script>
+    <script>
+		const { createApp } = Vue
+
+        createApp({
+            data(){
+                return{
+                    inputText1: '',
+                    inputText2: ''
+                }
+            }
+        })
+        .mount('#app')
+    </script>
+</body>
+
+</html>
