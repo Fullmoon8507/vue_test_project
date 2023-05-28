@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <h2>配列でv-for</h2>
+            <div v-for="item in sample_list" :key="item">
+                {{ item }}
+            </div>
+        </div>
+
+        <div>
+            <h2>index付きでv-for</h2>
+            <div v-for="(item, index) in sample_list" :key="item">
+                {{ index }}:{{ item }}
+            </div>
+        </div>
+
+        <div>
+            <h2>Objectでv-for</h2>
+            <div v-for="(value, key, index) in sample_object" :key="key">
+                {{ index }}.{{ key }}:{{ value }}
+            </div>
+        </div>
+    </div>
+
+    <script src="../../common/js/vue_global.js"></script>
+    <script>
+		const { createApp } = Vue
+
+        createApp({
+            data(){
+                return{
+                    sample_list:["aaa", "bbb", "ccc", "ddd"],
+                    sample_object:{
+                        name: 'MyName',
+                        age: '50',
+                        title: 'vue'
+                    }
+                }
+            }
+        })
+        .mount('#app')
+    </script>
+</body>
+
+</html>
