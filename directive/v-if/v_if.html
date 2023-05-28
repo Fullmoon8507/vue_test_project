@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+    <div id="app">
+        <div v-if="vValue=='OK'">
+            v-if: {{ vValue }}
+        </div>
+        <div v-else-if="vValue=='NG'">
+            v-else-if: {{ vValue }}
+        </div>
+        <div v-else>
+            v-else: {{ vValue }}
+        </div>
+        <div>
+            <input type="button" v-on:click="counterEvent()" value="change">
+        </input>
+    </div>
+
+    <script src="../../common/js/vue_global.js"></script>
+    <script>
+		const { createApp } = Vue
+
+        createApp({
+            data(){
+                return{
+                    vValue:'init',
+                    count: 0
+                }
+            },
+            methods:{
+                counterEvent(){
+                    this.count += 1
+                    if(this.count % 3 == 1){
+                        this.vValue = 'OK'
+                    }
+                    else if(this.count % 3 == 2){
+                        this.vValue = 'NG'
+                    }
+                    else{
+                        this.vValue = 'init'
+                    }
+                }
+            }
+        })
+        .mount('#app')
+    </script>
+</body>
+
+</html>
