@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <h2>v-modelサンプル チェックボックス</h2>
+            <div>
+                <input type="checkbox" v-model="checkValue" v-on:change="clickEvent()">
+            </div>
+        </div>
+    </div>
+
+    <script src="../../common/js/vue_global.js"></script>
+    <script>
+		const { createApp } = Vue
+
+        createApp({
+            data(){
+                return{
+                    checkValue: 0,
+                }
+            },
+            methods:{
+                clickEvent(){
+                    alert(typeof(this.checkValue) + " : " + this.checkValue);
+                }
+            },
+            created: function(){
+                    alert(typeof(this.checkValue) + " : " + this.checkValue);
+            }
+        })
+        .mount('#app')
+    </script>
+</body>
+
+</html>
