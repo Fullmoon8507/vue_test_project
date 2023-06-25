@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <h2>回数指定でv-for</h2>
+            <div v-for="index in Number(roopCounter)" :key="index" style="margin:10px">
+                <input type="button" v-bind:value="'ボタン' + index">
+            </div>
+        </div>
+    </div>
+
+    <script src="../../common/js/vue_global.js"></script>
+    <script>
+		const { createApp } = Vue
+
+        createApp({
+            data(){
+                return{
+                    roopCounter: "5"
+                }
+            },
+            methods:{
+            }
+        })
+        .mount('#app')
+    </script>
+</body>
+
+</html>
