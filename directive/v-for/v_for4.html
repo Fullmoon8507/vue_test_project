@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <h2>v-forでdataオプションの配列項目を添え字で使用する</h2>
+            <div v-for="i in 2" :key="i">
+                <input type="button" v-bind:value="gmsg.msgList[i-1]" style="margin: 5px;">
+            </div>
+        </div>
+    </div>
+
+    <script src="../../common/js/vue_global.js"></script>
+    <script>
+		const { createApp } = Vue
+
+        createApp({
+            data(){
+                return{
+                    gmsg: {
+                        msgList: ["aaa", "bbb", "ccc", "ddd", "eee"]
+                    }
+                }
+            },
+            methods:{
+            }
+        })
+        .mount('#app')
+    </script>
+</body>
+
+</html>
