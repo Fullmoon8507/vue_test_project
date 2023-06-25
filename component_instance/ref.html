@@ -9,8 +9,11 @@
     <div id="app">
         <div>
             <h2>refサンプル</h2>
-            <div>
+            <div style="margin:10px;">
                 <input type="text" ref="textRef" value="refのサンプル" v-on:change="textEvent()">
+            </div>
+            <div style="margin:10px;">
+                <label><input type="checkbox" ref="checkboxRef" value="aaa" v-on:change="checkboxEvent()">チェックボックス</label>
             </div>
         </div>
 
@@ -28,6 +31,10 @@
             methods:{
                 textEvent(){
                     alert(this.$refs.textRef.value);
+                },
+                checkboxEvent(){
+                    alert(this.$refs.checkboxRef.checked);
+                    alert(this.$refs.checkboxRef.value);
                 }
             }
         })
