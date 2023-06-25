@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <h2>$dataサンプル</h2>
+            <input type="button" value="表示" v-on:click="clickEvent()">
+        </div>
+
+    </div>
+
+    <script src="../../common/js/vue_global.js"></script>
+    <script>
+       	const { createApp } = Vue;
+
+        createApp({
+            data(){
+                return{
+                    gmsg: {
+                        G00001: "abc",
+                        G00002: "def",
+                    }
+                }
+            },
+            methods:{
+                clickEvent(){
+                    alert(this.$data.gmsg.G00001)
+                    alert(this.$data.gmsg.G00002)
+                    alert(this.$data.gmsg['G00001'])
+                    alert(this.$data.gmsg['G00002'])
+                },
+            }
+        })
+        .mount('#app')
+    </script>
+</body>
+
+</html>
