@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <h2>v-modelとv-modelと$dataの組み合わせ</h2>
+            <div>
+                <div v-for="index in 2" :key="index">
+                    <label>
+                        <input type="checkbox" v-model="$data.gmsg['G0130' + index]" v-on:change="clickEvent()">G0130{{index}}
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../common/js/vue_global.js"></script>
+    <script>
+		const { createApp } = Vue
+
+        createApp({
+            data(){
+                return{
+                    gmsg: {
+                        G01301: true,
+                        G01302: false,
+                    },
+                }
+            },
+            methods:{
+                clickEvent(){
+                    let msg1 = ""
+                    msg1 += "gmsg.G01301: " + this.gmsg.G01301
+                    msg1 += ", gmsg.G01302: " + this.gmsg.G01302
+
+                    let msg2 = ""
+                    msg2 += "$data.gmsg['G01301']: " + this.$data.gmsg['G01301']
+                    msg2 += ", $data.gmsg['G01302']: " + this.$data.gmsg['G01302']
+
+                    alert(msg1)
+                    alert(msg2)
+                }
+            },
+        })
+        .mount('#app')
+    </script>
+</body>
+
+</html>
