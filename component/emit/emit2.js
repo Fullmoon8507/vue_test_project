@@ -12,7 +12,11 @@ export default{
     `,
     methods:{
         clickEvent(){
+            alert("clickEvent start")
+
             this.$emit('child-click', this.childValue)
+
+            alert("clickEvent end")
         }
     }
 }
