@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+    <div id="app">
+        <h2>ハンドラー</h2>
+        <div style="margin: 10px;">
+            <label><input type="checkbox" v-on:change="counter++">インラインハンドラー</label>
+        </div>
+        <div style="margin: 10px;">
+            <label><input type="checkbox" name="cb1" v-on:change="changeEvent1">メソッドハンドラー</label>
+        </div>
+        <div style="margin: 10px;">
+            <label><input type="checkbox" name="cb2" v-on:change="changeEvent2($event, 'ChangeEvent!')" value="v-onイベント">イベントオブジェクト＋引数</label>
+        </div>
+    </div>
+
+    <script src="../../common/js/vue_global.js"></script>
+    <script>
+		const { createApp } = Vue
+
+        createApp({
+            data(){
+                return{
+                    counter: 0,
+                }
+            },
+            methods:{
+                changeEvent1(event){
+                    alert("counter: " + this.counter);
+                    alert(event.target.name)
+
+                },
+                changeEvent2(event, message){
+                    alert(event.target.checked);
+                    alert(event.target.name);
+                    alert(event.target.value);
+                    alert(message);
+                }
+            }
+        })
+        .mount('#app')
+    </script>
+</body>
+
+</html>
