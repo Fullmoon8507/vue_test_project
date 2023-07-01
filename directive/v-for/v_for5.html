@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <h2>v-forとrefsの組み合わせ</h2>
+            <div v-for="i in 2" :key="i">
+                <input class="xxx" ref="text" type="text" value="abcde" style="margin: 10px;">
+            </div>
+            <input type="button" value="チェック" v-on:click="xxx">
+        </div>
+    </div>
+
+    <script src="../../common/js/vue_global.js"></script>
+    <script>
+		const { createApp } = Vue
+
+        createApp({
+            data(){
+                return{
+                }
+            },
+            methods:{
+                xxx(){
+                    alert(this.$refs.text[0].value);
+                }
+            }
+        })
+        .mount('#app')
+    </script>
+</body>
+
+</html>
