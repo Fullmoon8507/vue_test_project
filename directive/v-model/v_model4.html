@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <h2>v-forの入れ子</h2>
+            <div>
+                <div v-for="i in 2" :key="i">
+                    <h2>ループ{{ i }}</h2>
+                    <div v-for="j in 2" :key="2">
+                        <input type="button" v-bind:value="'ボタン' + i + '-' + j" v-on:click="xxx($event)">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../common/js/vue_global.js"></script>
+    <script>
+		const { createApp } = Vue
+
+        createApp({
+            data(){
+                return{
+                }
+            },
+            methods:{
+                xxx(e){
+                    alert(e.target.value);
+                }
+            },
+        })
+        .mount('#app')
+    </script>
+</body>
+
+</html>
